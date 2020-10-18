@@ -23,23 +23,12 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 
 var loader = new GLTFLoader();
 var human1;
-var human2;
 
-loader.load( 'models/St.パーカー/St.パーカー.gltf', function ( gltf ) {
+loader.load('models/St.パーカー/St.パーカー.gltf', function ( gltf ) {
   human1 = gltf.scene;
   human1.scale.set(350,350,350)
-  human1.position.set(200,-350,0);
+  human1.position.set(0,-350,0);
   scene.add( human1 );
-}, undefined, function ( error ) {
-  console.error( error );
-} );
-
-loader.load( 'models/sendagaya.vrm', function ( gltf ) {
-  human2 = gltf.scene;
-  human2.scale.set(350,350,350)
-  human2.position.set(-200,-350,0);
-  human2.rotation.y += Math.PI;
-  scene.add( human2 );
 }, undefined, function ( error ) {
   console.error( error );
 } );
@@ -47,7 +36,6 @@ loader.load( 'models/sendagaya.vrm', function ( gltf ) {
 var mouse = new Vector2(0, 0);
 var mousedown = new Vector2(0, 0);
 var lastlotation1 = 0;
-var lastlotation2 = 0;
 var isDown = false;
 
 var mouseMoved = function(x, y) {
@@ -62,7 +50,6 @@ window.addEventListener('mousedown', e => {
   mousedown.x =  e.clientX - (window.innerWidth / 2);
   mousedown.y = -e.clientY + (window.innerHeight / 2);
   lastlotation1 = human1.rotation.y;
-  lastlotation2 = human2.rotation.y;
 });
 window.addEventListener('mouseup', e => {
   isDown = false;
@@ -72,7 +59,6 @@ var animate = function () {
   requestAnimationFrame( animate );
   if(isDown){
     human1.rotation.y = lastlotation1 + (mouse.x - mousedown.x) / 200;
-    human2.rotation.y = lastlotation2 + (mouse.x - mousedown.x) / 200;
   }
   else{    
   }
