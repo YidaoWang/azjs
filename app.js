@@ -24,7 +24,7 @@ renderer.outputEncoding = THREE.sRGBEncoding;
 var loader = new GLTFLoader();
 var human1;
 
-loader.load('models/St.パーカー/St.パーカー.gltf', function ( gltf ) {
+loader.load('models/parker_base/parker_base.gltf', function ( gltf ) {
   human1 = gltf.scene;
   human1.scale.set(350,350,350)
   human1.position.set(0,-350,0);

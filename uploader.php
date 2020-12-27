@@ -3,18 +3,27 @@
     <title>uploader.php</title>
 </head>
 <body>
+<input type="button" onclick="history.back()" value="戻る">
 <?php
-$updir = "./models/St.パーカー/";
-$filename = "SEVEN OF CUPS.jpg";
-if (move_uploaded_file($_FILES['upfile']['tmp_name'], $updir.$filename) == FALSE){
-    print("Upload failed");
+$updir = "./models/updir/";
+$filename1 = "胸.png";
+$filename2 = "背中.png";
+$filename3 = "袖L.png";
+$filename4 = "袖R.png";
+if (move_uploaded_file($_FILES['upfile1']['tmp_name'], $updir.$filename1) == FALSE){
+    print("Upload failed 1");
+}
+if (move_uploaded_file($_FILES['upfile2']['tmp_name'], $updir.$filename2) == FALSE){
+    print("Upload failed 2");
+}
+if (move_uploaded_file($_FILES['upfile3']['tmp_name'], $updir.$filename3) == FALSE){
+    print("Upload failed 3");
+}
+if (move_uploaded_file($_FILES['upfile4']['tmp_name'], $updir.$filename4) == FALSE){
+    print("Upload failed 4");
 }
 ?>
-<form method="post" enctype="multipart/form-data" action="uploader.php">
-    <input type="file" name="upfile">
-    <input type="submit" value="アップロードする">
-</form>
 <script src="./node_modules/three/build/three.min.js"></script>
-<script type="module" src="./app.js"></script>
+<script type="module" src="./upload.js"></script>
 </body>
 </html>
