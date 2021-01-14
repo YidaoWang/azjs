@@ -4,28 +4,62 @@
       <meta charset="utf-8">
       <title>ApoNAel</title>
       <style>
-         body { margin: 0; }
-         .inner{
-         text-align: center;
+         body{ margin:0; }
+         .center {
+            text-align:center;
          }
-         table { display: inline-block;}
+         table{ 
+            display:inline-block;
+         }
+         .header{
+            padding: 20px;
+         }
+         .icon{
+            border-radius: 50%;
+         }
+         .gray{
+            background-color:#eeeeee;
+         }
+         #icon{
+            width: 50px; height: 50px;
+         }
+         #logo{
+            height: 40px;
+         }
+         select{
+            background:white;
+         }
       </style>
    </head>
    <body>
       <script src="./node_modules/three/build/three.min.js"></script>
       <script type="module" src="./app.js"></script>
-      <div class="inner">
-         <select id="select">
-			 <option value='models/parker_base/parker_base.gltf'>clo</option>
-			 <option value='models/Az.vrm'>VRoid 1</option>
-			 <option value='models/sendagaya.vrm'>VRoid 2</option>
-		 </select>	
+      <div class="center gray header">
+         <table class="headerTable">
+            <tr>
+               <th width="50px">
+                  <img id="logo" src="assets/img/apoNAel_logo.png">
+               </th>
+               <th width="400px">
+               </th>
+               <th width="75px">
+                  <img id="icon" class="icon" src="assets/img/apoNAel.jpg">
+               </th>
+            </tr>
+         </table>
       </div>
-      <div class="inner">
+      <div class="center gray">
+         <select id="select">
+            <option value='assets/models/parker_base/parker_base.gltf'>clo</option>
+            <option value='assets/models/Az.vrm'>VRoid 1</option>
+            <option value='assets/models/sendagaya.vrm'>VRoid 2</option>
+           </select>
+      </div>
+      <div class="center gray">
          <canvas id="mainCanvas" width="800" height="750"></canvas>
       </div>
       <form method="post" enctype="multipart/form-data" action="uploader.php">
-         <div class="inner">
+         <div class="center">
             <table>
                <tr>
                   <th>胸</th>

@@ -10,7 +10,7 @@ const fovRad = (fov / 2) * (Math.PI / 180);// 視野角をラジアンに変換
 const dist   = (height / 2) / Math.tan(fovRad);// ぴったりのカメラ距離
 var model;
 
-function initModel(scene, camera, renderer, modelPath){
+function initModel(scene, modelPath){
   var loader = new GLTFLoader();
   loader.load(modelPath, function ( gltf ) {
     model = gltf.scene;
@@ -26,8 +26,7 @@ function initModel(scene, camera, renderer, modelPath){
 
 function main(){
   var scene = new THREE.Scene();
-  scene.background = new THREE.Color( 0xe0c1ff );
-  
+  scene.background = new THREE.Color( 0xEEEEEE );
   var light = new THREE.HemisphereLight( 0xFFFFFF, 0x696969, 1.3);
   light.position.set( 0, 20, 0 );
   scene.add( light );
@@ -76,7 +75,7 @@ function main(){
     if(model){
       scene.remove(model)
     }
-    initModel(scene, camera, renderer, modelPath)
+    initModel(scene, modelPath)
   }
   select.onchange()
 

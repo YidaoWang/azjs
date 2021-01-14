@@ -5,8 +5,8 @@
 <body>
 <input type="button" onclick="history.back()" value="戻る">
 <?php
-$basedir =  "./models/parker_base/";
-$updir = sprintf("./upload/updir%d/", time());
+$basedir =  "./assets/models/parker_base/";
+$updir = sprintf("./assets/upload/updir%d/", time());
 
 exec(sprintf("cp -r %s %s", $basedir, $updir));
 
