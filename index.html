@@ -4,15 +4,27 @@
       <meta charset="utf-8">
       <title>ApoNAel</title>
       <style>
-         body{ margin:0; }
+         @font-face{font-family:Material Icons;font-style:normal;font-weight:400;src:url(https://fonts.gstatic.com/s/materialicons/v70/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2) format("woff2")}
+         body{ 
+            margin:0;
+            text-align: center;
+          }
          .center {
-            text-align:center;
+            text-align: center;
+            display: block;
          }
          table{ 
+            vertical-align:middle;
             display:inline-block;
+            max-width: 372px;
+         }
+         .row{
+            display: flex;
+            justify-content: center;
          }
          .header{
-            padding: 20px;
+            height: 39px;
+            padding: 10px 0px 0px 0px;
          }
          .icon{
             border-radius: 50%;
@@ -21,68 +33,123 @@
             background-color:#eeeeee;
          }
          #icon{
-            width: 50px; height: 50px;
+            width: 24px; height: 24px;
          }
          #logo{
-            height: 40px;
+            height: 26px;
          }
          select{
             background:white;
          }
+         .search_box{
+            font-size: 14px;
+            margin: 7px 1px 7px 0px;
+            padding: 8px 16px 8px 16px;
+            width: 282px;
+            height: 7px;
+         }
+         p{
+            color: #666666;
+            font-size: 12px;
+            font-family: system-ui;
+            font-weight: 400;
+            text-align: center;
+            margin: 15px 250px 20px 0px;
+         }
+         .sbox{ align-content: center; align-items: center; border-bottom: 1px solid #EEEEEE; border-left: 1px solid #EEEEEE; border-radius: 4px; border-right: 1px solid #EEEEEE; border-top: 1px solid #EEEEEE; color: #666666; flex-direction: column; flex-wrap: nowrap; height: 23px; justify-content: center; padding: 0px 0px 0px 0px; margin: 7px 0px 7px 0px; width: 38px; max-width: 100%; background: #EEEEEE;}
+         .material-icons{font-family:Material Icons;font-weight:400;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;color: #666666;}
       </style>
    </head>
    <body>
       <script src="./node_modules/three/build/three.min.js"></script>
       <script type="module" src="./app.js"></script>
-      <div class="center gray header">
-         <table class="headerTable">
+      <div class="center">
+         <table>
             <tr>
-               <th width="50px">
-                  <img id="logo" src="assets/img/apoNAel_logo.png">
-               </th>
-               <th width="400px">
-               </th>
-               <th width="75px">
-                  <img id="icon" class="icon" src="assets/img/apoNAel.jpg">
+               <th>
+                  <div class="center gray header">
+                     <table class="headerTable">
+                        <tr>
+                           <th width="15"></th>
+                           <th>
+                              <img id="logo" src="assets/img/apoNAel_logo.png">
+                           </th>
+                           <th width="400px">
+                           </th>
+                           <th>
+                              <i class="material-icons">list</i>   
+                           </th>
+                           <th width="20"></th>
+                           <th>
+                              <i class="material-icons">shopping_cart</i>   
+                           </th>
+                           <th width="20"></th>
+                           <th>
+                              <img id="icon" class="icon" src="assets/img/apoNAel.jpg">
+                           </th>
+                           <th width="20"></th>
+                        </tr>
+                     </table>
+                  </div>
+                  <div class="row">
+                     <input class="search_box" placeholder="キーワードを検索">
+                     <a class="sbox">
+                        <i class="material-icons">search</i> 
+                     </a>
+                  </div>
+                  <p>ジップパーカー</p>
+                  <div class="center">
+                     <select id="select">
+                        <option value='assets/models/parker_base/parker_base.gltf'>clo</option>
+                        <option value='assets/models/Parker_galileo/Parker_galileo.gltf'>clo 2</option>
+                        <option value='assets/models/Az.vrm'>VRoid 1</option>
+                        <option value='assets/models/sendagaya.vrm'>VRoid 2</option>
+                       </select>
+                  </div>
+                  <div class="center">
+                     <canvas id="mainCanvas" width="340" height="516"></canvas>
+                  </div>
+                  <form method="post" enctype="multipart/form-data" action="uploader.php">
+                     <div class="center">
+                        <table>
+                           <tr>
+                              <th>胸</th>
+                              <th><input type="file" name="upfile1"></th>
+                           </tr>
+                           <tr>
+                              <td>背中</td>
+                              <td><input type="file" name="upfile2"></td>
+                           </tr>
+                           <tr>
+                              <td>左袖</td>
+                              <td><input type="file" name="upfile3"></td>
+                           </tr>
+                           <tr>
+                              <td>右袖</td>
+                              <td><input type="file" name="upfile4"></td>
+                           </tr>
+                        </table>
+                        <div>
+                           <input type="submit" value="アップロードする">
+                        </div>
+                     </div> 
+                     <!-- <table>
+                        <tr>
+                           <th>身長</th>
+                           <th><input type="range" name="upfile1"></th>
+                        </tr>
+                        <tr>
+                           <td>体重</td>
+                           <td><input type="range" name="upfile2"></td>
+                        </tr>
+                     </table> -->
+                     <!-- <img src="assets/img/footer.png" width="372"> -->
+                  </div>
+                  </form>
+                  </div>
                </th>
             </tr>
          </table>
       </div>
-      <div class="center gray">
-         <select id="select">
-            <option value='assets/models/parker_base/parker_base.gltf'>clo</option>
-            <option value='assets/models/Az.vrm'>VRoid 1</option>
-            <option value='assets/models/sendagaya.vrm'>VRoid 2</option>
-           </select>
-      </div>
-      <div class="center gray">
-         <canvas id="mainCanvas" width="800" height="750"></canvas>
-      </div>
-      <form method="post" enctype="multipart/form-data" action="uploader.php">
-         <div class="center">
-            <table>
-               <tr>
-                  <th>胸</th>
-                  <th><input type="file" name="upfile1"></th>
-               </tr>
-               <tr>
-                  <td>背中</td>
-                  <td><input type="file" name="upfile2"></td>
-               </tr>
-               <tr>
-                  <td>左袖</td>
-                  <td><input type="file" name="upfile3"></td>
-               </tr>
-               <tr>
-                  <td>右袖</td>
-                  <td><input type="file" name="upfile4"></td>
-               </tr>
-            </table>
-            <div>
-               <input type="submit" value="アップロードする">
-            </div>
-         </div>
-      </form>
-      </div>
    </body>
-</html>
+</html> 

@@ -14,7 +14,7 @@ function initModel(scene, modelPath){
   var loader = new GLTFLoader();
   loader.load(modelPath, function ( gltf ) {
     model = gltf.scene;
-    var posx = width / 2
+    var posx = height / 2
     var posy = height / 2
     model.scale.set(posx,posy,posy)
     model.position.set(0,-posy*0.9,0);
